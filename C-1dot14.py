@@ -16,7 +16,7 @@ def get_odd_pair(array):
 #def has_odd_product_pair(sequence):
 #    odd_numbers = set()
 #    for number in sequence:
-#        if number % 2 != 0:  # Check if the number is odd
+#        if number % 2 != 0:
 #            odd_numbers.add(number)
 #        if len(odd_numbers) >= 2:
 #            return True
