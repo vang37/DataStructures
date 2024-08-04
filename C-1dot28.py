@@ -1,4 +1,4 @@
-def norm(v: list, p = 2):
+def norm(v: list, p=2):
     return (sum((vec)**(p) for vec in v))**(1/p) 
 
 print(norm([4,3]))
