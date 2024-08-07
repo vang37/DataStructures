@@ -1,5 +1,6 @@
 import random 
 
+
 def distinct(sequence):
     unique_elements = set(sequence)
     return len(unique_elements) == len(sequence)
