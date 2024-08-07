@@ -1,9 +1,5 @@
 import random
 
-def lowercase_alphabet(startIdx, lngth):
-    return [chr(i) for i in range(startIdx, startIdx + lngth)]
-
-#lower_alpha = lowercase_alphabet(97, 26)
 lower_alpha = set(list('I will never spam my friends again.'))
 
 def random_indices(num, max_range):
@@ -17,8 +13,8 @@ def are_distinct(sequence):
     return len(unique_elements) == len(sequence)
 
 def find_unique_replacement(sent, lettr):
-    sent = sent.replace(str(lettr), '')
-    rando = random.randint(1, len(sent) - 2)
+    sent = list(set(sent.replace(str(lettr), '').replace(' ', '').replace('.', '').replace('I', '')))
+    rando = random.randint(0, len(sent) - 1)
     char = sent[rando]
     if char.isspace():
         return ''
@@ -34,23 +30,23 @@ def blackboard(num_rpt):
         letter = sentence[random_num]
         if str(n) == str(lst[t]):
             t += 1
-            if letter  == 'I':
-                print("ERROR I: ", n)
+            if letter == 'I':
+                print("ERROR I: ", n + 1)
                 sentence = sentence[:random_num] + "i" + sentence[random_num + 1:]
-                print(sentence)
+                print('{}. '.format(n + 1), sentence)
             elif sentence[random_num].isspace():
-                print("ERROR SPACE: ", n)
+                print("ERROR SPACE: ", n + 1)
                 sentence = sentence[:random_num] + "" + sentence[random_num + 1:]
-                print(sentence)
+                print('{}. '.format(n + 1), sentence)
             elif letter in lower_alpha:
-                print("ERROR LETTER: ", n)
+                print("ERROR LETTER: ", n + 1)
                 sentence = sentence[:random_num] + find_unique_replacement(sentence, letter) + sentence[random_num + 1:]
-                print(sentence)
-            else:
-                print("ERROR EOS: ", n)
+                print('{}. '.format(n + 1), sentence)
+            elif letter == '.':
+                print("ERROR EOS: ", n + 1)
                 sentence = sentence[:random_num] + "!"
-                print(sentence)
+                print('{}. '.format(n + 1), sentence)
         else:
-            print(sentence)
+            print('{}. '.format(n + 1), sentence)
 
 blackboard(100)
