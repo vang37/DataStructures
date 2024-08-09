@@ -16,8 +16,8 @@ def main():
     for _ in range(number_of_rooms):
         if date_check(number_of_people):
             i += 1
-    return "n = {}: ".format(number_of_people), "%: ",  i/number_of_rooms
+    return "n = {}: ".format(number_of_people), "%: ",  i/number_of_rooms * 100
             
 for number_of_people in [5,10,15,20,21,22,23,24,25,30,40,50,75,100]:
-    number_of_rooms = 1000000
+    number_of_rooms = 10000
     print(main())
